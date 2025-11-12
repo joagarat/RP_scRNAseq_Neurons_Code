@@ -1,0 +1,22 @@
+# Ignorar datos
+*.csv
+*.tsv
+*.txt
+*.rds
+*.RData
+*.h5ad
+*.loom
+
+# Ignorar carpetas de datos o figuras
+data/
+figures/
+
+# Ignorar archivos de sistema y caché
+.Rhistory
+.Rproj.user
+__pycache__/
+.ipynb_checkpoints
+
+# Ignorar entornos
+.virtualenv/
+venv/
