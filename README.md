@@ -38,7 +38,8 @@ The project requires a specific execution order.
 The figure-generation scripts depend on intermediate files produced during preprocessing and differential expression analysis.
 The complete pipeline is organized into:
 
-- Dataset preprocessing
+- Dataset preprocessing.
+Note: before running the Aging preprocessing script, the Aging dataset must be filtered with: Filter_h5AgingDataset_isocortex.py
 - Stability (SCSeg) analysis
 - Differential expression analysis
 - Figure generation
