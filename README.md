@@ -26,8 +26,7 @@ Before running any script, populate the data/ directory with the following files
 - Yao et al. (2021) Smartseq2 Dataset Seurat Object. Seurat.ss.rda
 - Yao et al. (2021) Smartseq2 Dataset Metadata. CTX_Hip_anno_SSv4.csv
 - Ribosomal Protein Genes. RP.csv
-- Jin et al. (2025) Aging Dataset count matrix. Mouse_Aging_10Xv3_counts_20241115.h5ad
-- Jin et al. (2025) Aging Dataset Metadata. metadata_aging 
+- Jin et al. (2025) Aging Dataset. Mouse_Aging_10Xv3_counts_20241115.h5ad
 - Hing et al. (2024) Stress Vulnerability Dataset. Place inside data/Hing_2024_PFC_stress/original_data/ all raw matrices downloaded from GEO (GSE240975).
 - Immunohistochemistry Quantification. Place inside data/Immuno_Quantification/ the three immunofluorescence quantification tables. 
     - Cuantificacion_Rps27_NeuN_Gad67.xlsx
