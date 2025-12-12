@@ -4,15 +4,15 @@ This repository contains all code and scripts required to reproduce the analyses
 
 "Single-cell RNA-seq Reveals Distinct Ribosomal Protein Expression Profiles Among Neuronal Subtypes".
 
-Data and Code Availability
+Data and Code Availability:
 
-All single-cell RNA-seq datasets analyzed in this study are publicly available:
+All single-cell RNA-seq datasets analyzed in this study are publicly available.
 
-Yao et al. (2021) – 10x Genomics Chromium and Smart-seq2 datasets (NeMO: dat-jb2f34y)
+- Yao et al. (2021) – 10x Genomics Chromium and Smart-seq2 datasets (NeMO: dat-jb2f34y)
 
-Jin et al. (2025) – NeMO dataset (dat-61kfys3)
+- Jin et al. (2025) – NeMO dataset (dat-61kfys3)
 
-Hing et al. (2024) – GEO dataset (GSE240975)
+- Hing et al. (2024) – GEO dataset (GSE240975)
 
 The Smart-seq2 dataset was downloaded directly as a Seurat object (Seurat.ss.rda) from the Allen Institute Brain Map portal:
 https://brain-map.org/our-research/cell-types-taxonomies/cell-types-database-rna-seq-data/mouse-whole-cortex-and-hippocampus-smart-seq
