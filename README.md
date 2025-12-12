@@ -21,8 +21,6 @@ Required Input Files and Directory Structure
 
 Before running any script, populate the data/ directory with the following files:
 
-data/
-
 - Yao et al. (2021) 10xGenomics Dataset count matrix. Chromium_expression_matrix.hdf5
 - Yao et al. (2021) 10xGenomics Dataset Metadata. CTX_Hip_anno_10x.csv
 - Yao et al. (2021) Smartseq2 Dataset Seurat Object. Seurat.ss.rda
