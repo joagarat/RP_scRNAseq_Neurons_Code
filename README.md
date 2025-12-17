@@ -1,8 +1,8 @@
-# Single-cell RNA-seq Reveals Distinct Ribosomal Protein Expression Profiles Among Neuronal Subtypes.
+# Neuronal Subtype–Specific Ribosomal Protein mRNA Expression.
 
 This repository contains all code and scripts required to reproduce the analyses and generate the figures for the article:
 
-"Single-cell RNA-seq Reveals Distinct Ribosomal Protein Expression Profiles Among Neuronal Subtypes".
+"Neuronal Subtype–Specific Ribosomal Protein mRNA Expression".
 
 Data and Code Availability:
 
