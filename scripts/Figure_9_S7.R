@@ -105,7 +105,7 @@ p <- ggplot(df_plot, aes(x = CZ_pix, y = S27_Mean, color = pasa_filtro_z)) +
     legend.text = element_text(size = 8),
     legend.title = element_text(size = 8)
   )
-
+dir.create("Figuras/Figura_S7", recursive = TRUE, showWarnings = FALSE)
 svglite(
   "Figuras/Figura_S7/Fig_S7A.svg",
   width = 2.5,
@@ -257,7 +257,7 @@ panel_violin_plot_s27_protein <- ggplot(datos_filtrados, aes(x = curated_cell_ty
   )
 
 print(panel_violin_plot_s27_protein)
-
+dir.create("Figuras/Figura_9", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   "Figuras/Figura_9/Figura_9C.png",
   plot = panel_violin_plot_s27_protein,

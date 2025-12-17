@@ -1,16 +1,3 @@
-# Ignorar datos
-*.csv
-*.tsv
-*.txt
-*.rds
-*.RData
-*.h5ad
-*.loom
-
-# Ignorar carpetas de datos o figuras
-data/
-figures/
-
 # Ignorar archivos de sistema y caché
 .Rhistory
 .Rproj.user

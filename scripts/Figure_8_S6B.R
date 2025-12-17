@@ -23,12 +23,13 @@ names(df_list_stress) <- gsub(filelist_stress, pattern="\\..*", replacement="")
 df_stress <- bind_rows(df_list_stress, .id = "id")
 df_stress_clean <- na.omit(df_stress)
 
-path_control <- "data/Chromium_DEGs_PL_ILA_ORB/"
+path_control <- "data/Chromium_DEGs_PL_ILA_ORB/PL-ILA-ORB/"
 filelist_control <- list.files(path = path_control, pattern="*.csv$")
 df_list_control <- lapply(filelist_control, function(f) fread(file.path(path_control, f)))
 names(df_list_control) <- gsub(filelist_control, pattern="\\..*", replacement="")
 df_control <- bind_rows(df_list_control, .id = "id")
 df_control_clean <- na.omit(df_control)
+df_control_clean$id <- gsub("_vs_", "vs", df_control_clean$id)
 
 ordenar_id <- function(id) {
   subtipos <- unlist(strsplit(id, "vs"))
@@ -55,6 +56,8 @@ tabla_comun <- inner_join(
   by = c("id_estandarizado", "V1"),
   suffix = c("_control", "_stress")
 )
+
+
 
 tabla_comun <- tabla_comun %>%
   mutate(
@@ -153,7 +156,7 @@ panel_b_rp_corr_stress <- ggplot(scatter_data_rps_stress, aes(x = log2FoldChange
   ) +
   guides(color = guide_legend(nrow = 2, override.aes = list(alpha = 1, size = 3))) +
   labs(title = NULL, x = "Log2FC (Yao et al., 2021)", y = NULL)
-
+dir.create("Figuras/Figura_8", recursive = TRUE, showWarnings = FALSE)
 ggsave("Figuras/Figura_8/Figure_8A.png", plot = panel_a_global_corr, width = 2.5, height = 2.8, units = "in", dpi = 300)
 ggsave("Figuras/Figura_8/Figure_8B.png", plot = panel_b_rp_corr_stress, width = 2.5, height = 2.8, units = "in", dpi = 300)
 
@@ -386,8 +389,9 @@ dev.off()
 final_column_order <- labels(dend_reordered)
 m_reordered_for_shc <- m_combined_zscore_by_col[, final_column_order]
 shc_result_reordered <- shc(as.matrix(t(m_reordered_for_shc)), metric = "euclidean", linkage = "ward.D2")
+dir.create("Figuras/Figure_S6", recursive = TRUE, showWarnings = FALSE)
 svglite(
-  "Figures/Figure_S6/Figure_S6B.svg", 
+  "Figuras/Figure_S6/Figure_S6B.svg", 
   width = 15, 
   height = 10
 )

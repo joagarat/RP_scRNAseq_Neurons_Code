@@ -4,8 +4,8 @@ library(dplyr)
 library(stringr)
 library(data.table)
 
-seurat_adult <- readRDS("data/Normalized_Classified_Seurat_Adult_Sep_2025")
-seurat_aged <- readRDS("data/Normalized_Classified_Seurat_Aged_Sep_2025")
+seurat_adult <- readRDS("data/Normalized_Classified_Seurat_Adult")
+seurat_aged <- readRDS("data/Normalized_Classified_Seurat_Aged")
 meta_paper <- fread("data/metadata_aging.csv")
 run_pairwise_deseq <- function(seurat_object, meta_paper_df, group_name, base_output_path, min_donors = 3) {
   output_dir <- file.path(base_output_path, paste0("DESeq_", group_name, "_Between_Subclasses"))

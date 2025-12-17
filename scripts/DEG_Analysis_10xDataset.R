@@ -1,4 +1,5 @@
 library(rhdf5)
+library(DESeq2)
 samples = h5read("data/Chromium_expression_matrix.hdf5", "/data/samples")
 genes = h5read("data/Chromium_expression_matrix.hdf5", "/data/gene")
 metadata = read.csv("data/CTX_Hip_anno_10x.csv")
@@ -32,7 +33,7 @@ index = list()
 for (i in seq(1,8)) {
   index[[i]] = which(samples%in%metadata_list[[i]]$exp_component_name)
   samplenames = samples[index[[i]]]
-  mtx = h5read("data_/Chromium_expression_matrix.hdf5", name = "data/counts", index = list(index[[i]], NULL))
+  mtx = h5read("data/Chromium_expression_matrix.hdf5", name = "data/counts", index = list(index[[i]], NULL))
   mtx = as.data.frame(mtx)
   mtx = t(mtx)
   colnames(mtx) = samplenames
@@ -132,7 +133,7 @@ for(j in seq_len(length(subclass_list)-1)){
     rats2_tab <- as.data.frame(table(rats2))
     rats1_tab <- rats1_tab[rats1_tab$Freq > 5, ]
     rats2_tab <- rats2_tab[rats2_tab$Freq > 5, ]
-    if(nrow(rats1_tab) < 2 | nrow(rats2_tab) < 2){
+    if(nrow(rats1_tab) < 3 | nrow(rats2_tab) < 3){
       next
     }
     counts1 <- list()

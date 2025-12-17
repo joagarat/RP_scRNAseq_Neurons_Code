@@ -187,7 +187,7 @@ saveRDS(seurat_combined, "data/Normalized_Classified_Seurat_Adult")
 remove(anchors1, anchors2, seurat_combined)
 remove(seurat_combined)
 gc()
-seurat = readRDS("data/Normalized_Seurat_Aged")
+seurat = readRDS("data/Normalized_Seurat_aged")
 excluir <- c("MOL NN_4", "CA2-FC-IG Glut_2", "OPC NN_1", "COP NN_1", "MFOL NN_3", "NFOL NN_2")
 metadata_cols <- colnames(seurat@meta.data)
 columna_a_usar <- NULL

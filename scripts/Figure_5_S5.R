@@ -181,7 +181,7 @@ panel_b2_losers <- Heatmap(heatmap_b2_matrix,
 )
 
 panel_b_combined <- panel_b1_winners + panel_b2_losers
-
+dir.create("Figuras/Figura_5", recursive = TRUE, showWarnings = FALSE)
 svglite(
   file = "Figuras/Figura_5/Figura_5B.svg",
   width = 6.5,  
@@ -325,14 +325,9 @@ panel_a_barplot <- ggplot(data_long_ordered, aes(x = detections, y = gene, fill 
   )
 print(panel_a_barplot)
 
+
 ggsave(
   "Figuras/Figura_5/Figura_5A.svg", 
-  plot = panel_a_barplot, 
-  width = 2, 
-  height = 10 
-)
-ggsave(
-  "Figuras/Figura_5/Figura_5A_ancha.svg", 
   plot = panel_a_barplot, 
   width = 4,  
   height = 10
@@ -385,7 +380,7 @@ final_plot_fixed_axes <- ggplot(complete_counts, aes(x = V1, y = detection_count
 
 print(final_plot_fixed_axes)
 
-
-ggsave("Figuras/FigureS5_final_plot_fixed_axes.svg", plot = final_plot_fixed_axes, width = 18, height = 9)
-ggsave("Figuras/FigureS5_final_plot_fixed_axes.png", plot = final_plot_fixed_axes, width = 18, height = 9, dpi = 300)
+dir.create("Figuras/Figure_S5", recursive = TRUE, showWarnings = FALSE)
+ggsave("Figuras/Figure_S5/FigureS5_final_plot_fixed_axes.svg", plot = final_plot_fixed_axes, width = 18, height = 9)
+ggsave("Figuras/Figure_S5/FigureS5_final_plot_fixed_axes.png", plot = final_plot_fixed_axes, width = 18, height = 9, dpi = 300)
 

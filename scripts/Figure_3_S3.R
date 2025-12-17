@@ -126,6 +126,7 @@ bottom_annotation <- HeatmapAnnotation(
 )
 col_fun <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 library(svglite)
+dir.create("Figuras/Figura_3", recursive = TRUE, showWarnings = FALSE)
 svglite("Figuras/Figura_3/Fig_3A.svg", 
         width = 6.5,  # Ancho final
         height = 12)  # Alto
@@ -149,6 +150,7 @@ draw(ht,
 dev.off()
 shc_result <- shc(as.matrix(t(m_scaled)), metric="euclidean", linkage="ward.D2")
 plot(shc_result, hang=.1)
+dir.create("Figuras/Figura_S3", recursive = TRUE, showWarnings = FALSE)
 svglite("Figuras/Figura_S3/Fig_S3a.svg", 
         width = 15, 
         height = 7.5,

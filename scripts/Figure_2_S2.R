@@ -32,6 +32,8 @@ p_elbow_styled <- p_elbow +
   theme_classic() 
 
 print(p_elbow_styled)
+
+dir.create("Figuras/Figura_S2", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   plot = p_elbow_styled,
   filename = "Figuras/Figura_S2/FigS2_A.svg",
@@ -138,6 +140,7 @@ p_cluster <- DimPlot(seurat_merged_RP_subset, group.by = "SCT_snn_res.0.2", rast
   )
 
 print(p_cluster)
+dir.create("Figuras/Figura_2", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   filename = "Figuras/Figura_2/Fig_2A.svg",
   plot = p_cluster,

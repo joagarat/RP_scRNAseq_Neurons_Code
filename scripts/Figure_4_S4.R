@@ -141,7 +141,7 @@ p_boxplot <- ggplot(
   )
 
 print(p_boxplot)
-
+dir.create("Figuras/Figura_4", recursive = TRUE, showWarnings = FALSE)
 output_dir <- "Figuras/Figura_4/" 
 output_filename <- "Fig_4A.svg"
 
@@ -207,7 +207,7 @@ ggsave(
   units = "in"
 )
 
-
+dir.create("Figuras/Figura_S4", recursive = TRUE, showWarnings = FALSE)
 output_dir <- "Figuras/Figura_S4/DotPlots_Individuales_SinEscalar_SVG"
 if (!dir.exists(output_dir)) {
   dir.create(output_dir)

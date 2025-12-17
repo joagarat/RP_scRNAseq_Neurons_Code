@@ -15,6 +15,7 @@ p <- VlnPlot(seurat_merged, features = "Global RP expression", group.by = "subcl
     axis.text.x = element_text(angle = 45, hjust = 1, size = 8)
   )
 print(p)
+dir.create("Figuras/Figura_1", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   filename = "Figuras/Figura_1/Fig1_G.svg",
   plot = p,
@@ -33,6 +34,7 @@ p <- VlnPlot(seurat_merged, features = "nCount_RNA", group.by = "subclass_label"
     axis.text.x = element_text(angle = 45, hjust = 1, size = 8) 
   )
 print(p)
+dir.create("Figuras/Figura_S1", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   filename = "Figuras/Figura_S1/Fig_S1A.svg", 
   plot = p,
@@ -189,8 +191,6 @@ p <- VlnPlot(seurat_merged, features = "RibosomalSum", group.by = "subclass_labe
 
 print(p)
 
-setwd("/mnt/Disk01/jgarat/Articulo_SingleCell/")
-
 ggsave(
   filename = "Figuras/Figura_1/Fig1_H.svg",
   plot = p,
@@ -217,8 +217,8 @@ print(p)
 ggsave(
   filename = "Figuras/Figura_S1/Fig_S1C.svg", 
   plot = p,
-  width = 3.75,  # <-- Coincide con Fig1 G
-  height = 2.5,   # <-- Coincide con Fig1 G
+  width = 3.75,  
+  height = 2.5,   
   units = "in"
 )
 
@@ -297,8 +297,8 @@ print(final_plot)
 ggsave(
   filename = "Figuras/Figura_1/Fig1_F.svg",
   plot = final_plot,
-  width = 3.75,  # <-- COINCIDE CON EL RESTO
-  height = 2.5,   # <-- COINCIDE CON EL RESTO
+  width = 3.75,  
+  height = 2.5,   
   units = "in"
 )
 
@@ -339,7 +339,7 @@ p2 <- DimPlot(seurat_merged, group.by = "region_label", raster = TRUE) +
     color = "Brain Region" 
   ) +
   guides(color = guide_legend(
-    override.aes = list(size = 2) # <-- FUERZA EL MISMO TAMAÑO
+    override.aes = list(size = 2) 
   )) +
   theme_classic() +
   theme(

@@ -16,15 +16,27 @@ library(stringr)
 library(ggrepel)
 
 DEG_dir_adult = "data/Aging/DESeq_Adult_Between_Subclasses/"
-filelist = list.files(path = DEG_dir_adult, pattern="*.csv$")
-df_input_list_Allen <- lapply(filelist, fread)
-names(df_input_list_Allen) <- gsub(filelist, pattern="\\..*", replacement="")
+filelist <- list.files(
+  path = DEG_dir_adult,
+  pattern = "\\.csv$"
+)
+df_input_list_Allen <- lapply(
+  filelist,
+  function(f) fread(file.path(DEG_dir_adult, f))
+)
+names(df_input_list_Allen) <- gsub("\\..*", "", filelist)
 df_Allen <- bind_rows(df_input_list_Allen, .id = "id")
 df_sin_na_Allen <- na.omit(df_Allen)
 DEG_dir_aged = "data/Aging/DESeq_Aged_Between_Subclasses/"
-filelist = list.files(path = DEG_dir_aged, pattern="*.csv$")
-df_input_list_Aged <- lapply(filelist, fread)
-names(df_input_list_Aged) <- gsub(filelist, pattern="\\..*", replacement="")
+filelist <- list.files(
+  path = DEG_dir_aged,
+  pattern = "\\.csv$"
+)
+df_input_list_Aged <- lapply(
+  filelist,
+  function(f) fread(file.path(DEG_dir_aged, f))
+)
+names(df_input_list_Aged) <- gsub("\\..*", "", filelist)
 df_Aged <- bind_rows(df_input_list_Aged, .id = "id")
 df_sin_na_Aged <- na.omit(df_Aged)
 ordenar_id <- function(id) {
@@ -85,7 +97,6 @@ panel_a_global_corr <- ggplot(tabla_comun_sin_na, aes(x = log2FoldChange_Adult, 
   theme(legend.position = c(0.85, 0.2), plot.title = element_text(face="bold")) +
   labs(title = "A) Global DGE Correlation", x = "Subclass-Level log2FC (Adult)", y = "Subclass-Level log2FC (Aged)")
 
-print(panel_a_global_corr)
 
 tabla_comun_sin_na_final <- tabla_comun_sin_na %>%
   mutate(
@@ -193,9 +204,7 @@ plot_b_rp <- ggplot(scatter_data_rps, aes(x = log2FoldChange_Adult, y = log2Fold
   labs(title = NULL, x = "Subclass-Level Log2FC (Adult)", y = NULL) 
 
 scatters_side_by_side <- plot_a_global + plot_b_rp 
-
-scatters_side_by_side
-
+dir.create("Figuras/Figura_7", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   "Figuras/Figura_7/Figura_7AB-2.png", 
   plot = scatters_side_by_side, 
@@ -294,7 +303,7 @@ if (!exists("base_sigclust_colors")) {
 }
 
 subclass_to_cluster_map <- annotation_df %>%
-  count(Subclass, SigClust) %>%
+  dplyr::count(Subclass, SigClust) %>%
   group_by(Subclass) %>%
   slice_max(order_by = n, n = 1, with_ties = FALSE) %>%
   ungroup()
@@ -457,8 +466,9 @@ ggsave(
   dpi = 300 
 )
 
+dir.create("Figuras/Figure_S6", recursive = TRUE, showWarnings = FALSE)
 svglite(
-  "Figuras/Figura_S6/Figura_S6A.svg", 
+  "Figuras/Figure_S6/Figura_S6A.svg", 
   width = 15, 
   height = 10
 )

@@ -151,7 +151,7 @@ panel_a_scatterplot <- ggplot(scatter_data, aes(x = log2FoldChange_smartseq, y =
   )
 
 print(panel_a_scatterplot)
-
+dir.create("Figuras/Figura_6", recursive = TRUE, showWarnings = FALSE)
 ggsave(
   "Figuras/Figura_6/Figure_6A.svg", 
   plot = panel_a_scatterplot, 

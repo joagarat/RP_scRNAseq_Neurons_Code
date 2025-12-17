@@ -9,7 +9,9 @@ seurat_split <- lapply(seurat_split, function(x) {
 })
 exprs_mat = list()
 segIdx = list()
-param = BiocParallel::MulticoreParam(workers = 5, progressbar = TRUE)
+param = BiocParallel::MulticoreParam(workers = 10, progressbar = TRUE)
+remove(seurat_merged)
+gc()
 for (i in seq(1,11)){
   exprs_mat[[i]] = as.data.frame(seurat_split[[i]]@assays$RNA$data)
   cell_type = seurat_split[[i]]@meta.data$subclass_label
